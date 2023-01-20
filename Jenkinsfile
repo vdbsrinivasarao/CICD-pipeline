@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage ("checkout from GIT") {
             steps {
-                git branch: 'main', url: 'https://github.com/BalarajuGolla/CICD-pipeline'
+                git branch: 'main', url: 'https://github.com/vdbsrinivasarao/CICD-pipeline.git'
             }
         }
         stage ("terraform init") {
