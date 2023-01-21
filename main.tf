@@ -20,7 +20,7 @@ resource "aws_instance" "terraform_instance" {
   ami = "ami-0763cf792771fe1bd"
   instance_type = "t2.micro"
   key_name = "krishnakeypair"
-  security_groups = ["krishnasecuritygroup"]
+  security_groups = ["demo-sg"]
   tags = {
      Name = "terraform_instance"
   }
