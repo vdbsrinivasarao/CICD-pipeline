@@ -1,28 +1,36 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.16"
-    }
-  }
+Securitygroup.tf
+resource "aws_security_group" "test-sg" {
+	  name        = "test-sg"
+	  description = "allow ssh and http traffic"
+	
 
-  required_version = ">= 1.2.0"
-}
+	  ingress {
+	    from_port   = 22
+	    to_port     = 22
+	    protocol    = "tcp"
+	    cidr_blocks = ["0.0.0.0/0"]
+	  }
+	
 
-provider "aws" {
-  region  = "ap-south-1"
-  access_key = "AKIASDFMEMBBPMOGKNHL"
+	  ingress {
+	    from_port   = 80
+	    to_port     = 80
+	    protocol    = "tcp"
+	    cidr_blocks = ["0.0.0.0/0"]
+	  }
+	
 
-  secret_key = "BFH0Nws/4VMxuqeGbtzG+eEpLfB4Gt5UCHdXhBQH"
-}
+	  egress {
+	    from_port       = 0
+	    to_port         = 0
+	    protocol        = "-1"
+	    cidr_blocks     = ["0.0.0.0/0"]
+	  }
+	}
+Give feedback
 
-resource "aws_instance" "terraform_instance" {
-  ami = "ami-0763cf792771fe1bd"
-  instance_type = "t2.micro"
-  key_name = "krishnakeypair"
-  security_groups = ["krishnasecuritygroup"]
-  tags = {
-     Name = "terraform_instance"
-  }
-}
+
+
+
+
 
