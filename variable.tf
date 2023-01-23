@@ -1,4 +1,6 @@
-variable "access_key" {
+variable 
+"access_key" 
+{
 	  default = "AKIASDFMEMBBCRK7O67W"
 	  }
 	variable "secret_key" {
