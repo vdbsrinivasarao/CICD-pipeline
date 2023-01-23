@@ -1,4 +1,3 @@
-Securitygroup.tf
 resource "aws_security_group" "test-sg" {
 	  name        = "test-sg"
 	  description = "allow ssh and http traffic"
