@@ -1,4 +1,6 @@
-resource "aws_security_group" "test-sg" {
+resource 
+"aws_security_group" 
+"test-sg" {
 	  name        = "test-sg"
 	  description = "allow ssh and http traffic"
 	
@@ -26,7 +28,7 @@ resource "aws_security_group" "test-sg" {
 	    cidr_blocks     = ["0.0.0.0/0"]
 	  }
 	}
-Give feedback
+
 
 
 
