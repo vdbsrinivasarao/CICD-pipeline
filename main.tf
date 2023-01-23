@@ -1,25 +1,28 @@
-resource "aws_security_group" "test-sg" {
-  name        = "test-sg"
-  description = "allow ssh and http traffic"
-
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.16"
+    }
   }
 
-  ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+  required_version = ">= 1.2.0"
+}
 
-  egress {
-    from_port       = 0
-    to_port         = 0
-    protocol        = "-1"
-    cidr_blocks     = ["0.0.0.0/0"]
+provider "aws" {
+  region  = "ap-south-1"
+  access_key = "AKIASDFMEMBBCRK7O67W "
+
+  secret_key = "gq3mghYJ/iVGqdgGiP7cjPBxGl0QYqD5G9DVmFth "
+  
+}
+
+resource "aws_instance" "example" {
+  ami           = "ami-0763cf792771fe1bd"
+  instance_type = "t2.micro"
+  key_name = "krishnakeypair"
+  security_groups = ["test-sg"]
+  tags = {
+    Name = "ExampleAppServerInstance"
   }
 }
