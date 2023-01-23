@@ -1,12 +1,3 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.16"
-    }
-  }
-  required_version = ">= 1.2.0"
-}
 provider "aws" {
   region  = "ap-south-1"
 }
@@ -16,7 +7,7 @@ ingress {
   protocol   ="tcp"
   cidr_blocks =["0.0.0.0/0"]
 }
-igress {
+ingress {
   from_port  = 22
   to_port    =22
   protocol   ="tcp"
