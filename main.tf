@@ -11,8 +11,8 @@ terraform {
 
 provider "aws" {
   region  = "ap-south-1"
-  access_key = "AKIASDFMEMBBL4L3M5OK"
-  secret_key = "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 "
+  access_key = "AKIASDFMEMBBF52B43SI"
+  secret_key = "SisOq/xGz9PF8ftZ4gyEuIKUXJ2k6jz4Ej6/AQkS "
 
 }
 
@@ -22,6 +22,6 @@ resource "aws_instance" "example" {
   key_name = "krishnakeypair"
   security_groups = ["krishnasecuritygroup"]
   tags = {
-    Name = "ExampleAppServerInstance"
+    Name = "Terraform ServerInstance"
   }
 }
